@@ -1,3 +1,5 @@
+// src/pages/Home.jsx
+// NO CHANGES NEEDED HERE - Keep the code exactly as you provided in the previous message.
 import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import '../styles/Home.css'; // Ensure this path is correct
@@ -7,14 +9,14 @@ function Home() {
   return (
     <div id="home" className="container-fluid section home-section">
       <div className="container">
-        {/* --- Hero Section Row (Keep as is) --- */}
+        {/* --- Hero Section Row --- */}
         <div className="row align-items-center justify-content-between min-vh-80">
           {/* Text Column */}
-          <div className="col-lg-7 order-2 order-lg-1 text-center text-lg-start">
+          <div className="col-lg-7 order-2 order-lg-1 text-center text-lg-start hero-text-content"> {/* Added class for animation target */}
             <p className="code-line code-comment mb-2">// Initialize Portfolio...</p>
             <p className="code-line code-comment mb-4">// Welcome to my digital space! 👋</p>
             <h1 className="name-tag mb-3">
-              <span className="code-tag-name">Pratheeksha K N</span>
+               <span className="code-tag-name">&lt; Pratheeksha K N /&gt;</span> {/* Added back the <> */}
             </h1>
             <div className="role-declaration mb-4">
               <span className="code-keyword">const</span> <span className="code-variable">roles</span> = <span className="code-bracket">[</span>
@@ -37,7 +39,7 @@ function Home() {
             </p>
           </div>
           {/* Image Column */}
-          <div className="col-lg-5 order-1 order-lg-2 text-center">
+          <div className="col-lg-5 order-1 order-lg-2 text-center hero-image-content"> {/* Added class for animation target */}
             <img
               src={devIllustration}
               alt="Developer Illustration"
@@ -46,20 +48,17 @@ function Home() {
           </div>
         </div>
 
-        {/* === Introduction Section (REVISED STRUCTURE) === */}
-        <div className="row justify-content-center"> {/* Center the intro content */}
-          <div className="col-lg-10 col-xl-8"> {/* Control width */}
+        {/* === Introduction Section === */}
+        <div className="row justify-content-center">
+          <div className="col-lg-10 col-xl-8">
             <div id="about" className="introduction">
               <h3 className='section-intro-title'>
                 <span className="code-bracket">{'{'}</span> About Me <span className="code-bracket">{'}'}</span>
               </h3>
-
-              {/* Paragraph 1: Core Introduction */}
+              {/* Paragraphs remain the same */}
               <p className="about-paragraph">
                 Hi! I'm Pratheeksha, a passionate and curious developer driven by building meaningful digital experiences. I thrive on the challenge of solving problems and bringing ideas to life through code.
               </p>
-
-              {/* Paragraph 2: Current Focus & Tech Stack */}
               <p className="about-paragraph tech-focus">
                 <span className="code-comment">// Current Stack & Learning</span><br />
                 Actively honing my skills with hands-on experience in: <br />
@@ -71,28 +70,20 @@ function Home() {
                   <code className="tech-tag tailwind">Tailwind CSS</code>
                 </span>
               </p>
-
-              {/* Paragraph 3: Philosophy & Interests */}
               <p className="about-paragraph">
                 I enjoy the entire development lifecycle, from designing user-friendly interfaces to crafting clean backend logic. My core interest lies in <strong className="highlight">full-stack development</strong>, especially building impactful <strong className="highlight">SaaS</strong> applications and exploring the potential of <strong className="highlight">search technology</strong>.
               </p>
-
-               {/* Paragraph 4: Closing/Call to Action */}
                <p className="about-paragraph cta">
                  <span className="code-comment">// Let's connect and build something awesome!</span>
                </p>
-               {/* Optional: Link to contact page */}
-               {/* <div className="text-center mt-4">
-                   <a href="/contact" className="btn btn-outline-accent">Get In Touch</a>
-               </div> */}
-
-            </div> {/* End .introduction */}
-          </div> {/* End .col */}
-        </div> {/* End Introduction Row */}
-
-      </div> {/* End Inner Container */}
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="background-grid"></div>
-    </div> // End home-section container-fluid
+      {/* Add Scanlines Div */}
+      <div className="scanlines"></div>
+    </div>
   );
 }
 

@@ -27,6 +27,14 @@
      color: var(--accent-purple);
   }
   
+  .navbar-custom .navbar-brand {
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--accent-light-blue);
+  }
+  
+
   /* Navbar Links */
   .navbar-custom .nav-link {
     color: var(--text-secondary); /* Default link color */

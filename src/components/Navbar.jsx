@@ -8,7 +8,7 @@ function Navbar() {
     <nav className="navbar navbar-expand-lg navbar-custom fixed-top">
       <div className="container">
         <NavLink className="navbar-brand" to="/">
-          Pratheeksha K N
+        &lt;dev.pratheeksha /&gt;
         </NavLink>
         <button
           className="navbar-toggler"
