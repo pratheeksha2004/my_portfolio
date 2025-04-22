@@ -1,0 +1,43 @@
+/* src/pages/Skillset.css */
+.skill-item {
+    background-color: var(--secondary-dark); /* Slightly different background */
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 1px solid var(--border-color);
+    height: 100%; /* Ensure items in a row have same height potential */
+    display: flex; /* Helps vertically align content if needed */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .skill-item:hover {
+    transform: translateY(-10px) scale(1.05); /* Pop up effect */
+    box-shadow: 0 10px 20px var(--shadow-color);
+    border-color: var(--accent-light-blue);
+  }
+  
+  .skill-logo {
+    max-width: 60px; /* Adjust size as needed */
+    height: 60px; /* Maintain aspect ratio or set fixed size */
+    object-fit: contain; /* Ensure logo fits well */
+    filter: grayscale(30%) brightness(1.2); /* Subtle filter for theme */
+    transition: filter 0.3s ease;
+  }
+  
+  .skill-item:hover .skill-logo {
+      filter: grayscale(0%) brightness(1); /* Full color on hover */
+  }
+  
+  /* Optional: Style for skill name if you uncomment it */
+  .skill-name {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+  }
+  
+  .subsection-title {
+    color: var(--text-primary);
+    font-weight: 500;
+  }

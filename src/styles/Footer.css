@@ -1,0 +1,43 @@
+/* src/styles/Footer.css */
+
+.portfolio-footer {
+    background-color: var(--secondary-dark); /* Use a slightly different dark shade */
+    padding: 2.5rem 0 1.5rem 0; /* Top padding > Bottom padding */
+    margin-top: auto; /* Crucial: Pushes footer to bottom if page content is short */
+    border-top: 1px solid var(--border-color); /* Subtle separator line */
+    color: var(--text-secondary); /* Default text color for footer */
+    flex-shrink: 0; /* Prevent footer from shrinking if content grows */
+  }
+  
+  .footer-content {
+    /* Container handles width and centering */
+  }
+  
+  /* Styling for the social media/contact icon links */
+  .social-links a {
+    color: var(--text-secondary); /* Icon color */
+    font-size: 1.6rem; /* Make icons slightly larger */
+    margin: 0 1rem; /* Spacing between icons */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    display: inline-block; /* Needed for transform */
+  }
+  
+  .social-links a:hover {
+    color: var(--accent-light-blue); /* Highlight color on hover */
+    transform: translateY(-4px); /* Slight lift effect on hover */
+  }
+  
+  /* Styling for the dedication phrase */
+  .dedication {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-primary); /* Slightly brighter than copyright */
+    margin-bottom: 0.5rem; /* Adjust spacing */
+  }
+  
+  /* Styling for the copyright text */
+  .copyright {
+    font-size: 0.85rem; /* Smaller text */
+    color: var(--text-secondary);
+    margin-bottom: 0; /* Remove default bottom margin from paragraph */
+  }

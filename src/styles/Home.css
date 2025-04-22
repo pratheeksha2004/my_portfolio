@@ -1,0 +1,289 @@
+/* src/styles/Home.css */
+
+/* --- General Home Section --- */
+.home-section {
+    padding-top: 4rem; /* More space */
+    padding-bottom: 4rem;
+    font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    position: relative;
+    overflow: hidden;
+    /* Ensure the section takes enough height, especially with align-items-center */
+    display: flex; /* Use flex to help center content vertically if needed */
+    flex-direction: column; /* Stack inner elements */
+    justify-content: center; /* Center content vertically */
+  }
+  
+  /* Target the inner container specifically if needed */
+  .home-section > .container {
+      z-index: 1; /* Keep content above background grid */
+      position: relative; /* Needed for z-index */
+  }
+  
+  /* --- Code-Like Elements Styling (Mostly unchanged, review spacing) --- */
+  .code-line {
+    display: block;
+    color: var(--text-secondary);
+  }
+  
+  .code-comment {
+    color: #828ea0;
+    font-style: italic;
+    font-size: 0.9em;
+  }
+  
+  .name-tag {
+    font-size: clamp(1.8rem, 5vw, 3.2rem); /* Slightly increased max size */
+    font-weight: 500;
+    color: var(--text-secondary); /* Color for brackets */
+    margin-bottom: 1rem; /* Adjusted margin */
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.3s ease;
+    cursor: default;
+  }
+  .name-tag:hover {
+    color: var(--accent-purple);
+    transform: scale(1.02);
+  }
+  .name-tag .code-tag-name {
+    color: var(--accent-light-blue);
+    font-weight: 600;
+  }
+  
+  
+  .role-declaration {
+    margin-bottom: 1.5rem; /* Adjusted margin */
+    font-size: clamp(1rem, 3vw, 1.4em); /* Slightly larger max */
+    min-height: 45px;
+    color: var(--text-primary);
+  }
+  
+  .code-keyword { color: #c586c0; font-weight: 500; margin-right: 0.6ch; }
+  .code-variable { color: #9cdcfe; margin-right: 0.6ch; }
+  .code-bracket { color: #ffd700; font-weight: 500; }
+  .code-string { color: #ce9178; padding: 0 0.5ch; }
+  
+  .role-declaration .typed-cursor {
+    color: var(--accent-light-blue);
+    opacity: 1;
+    animation: blink 0.7s infinite;
+  }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  
+  
+  .tagline {
+    color: var(--text-secondary);
+    font-size: clamp(1rem, 2.5vw, 1.2rem); /* Slightly larger */
+    font-style: italic;
+    max-width: 550px; /* Adjust max-width based on column */
+    /* margin-left/right auto handled by text-align changes */
+    margin-bottom: 3rem !important; /* Adjusted margin */
+  }
+  /* Container for the tech tags */
+.tech-tags-container {
+    display: block; /* Ensure it starts on a new line */
+    margin-top: 0.5rem; /* Space above tags */
+  }
+  
+  /* Styling for individual tech tags */
+  .tech-tag {
+    display: inline-block; /* Allow tags to sit side-by-side */
+    background-color: var(--secondary-dark); /* Match card/footer bg */
+    color: var(--accent-light-blue); /* Use accent color */
+    border: 1px solid var(--border-color);
+    padding: 0.3em 0.8em; /* Padding around text */
+    border-radius: 4px; /* Slightly rounded corners */
+    margin-right: 0.6em; /* Space between tags */
+    margin-bottom: 0.6em; /* Space for wrapping */
+    font-size: 0.85em; /* Smaller font size for tags */
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    cursor: default; /* Indicate not clickable */
+  }
+  
+  .tech-tag:hover {
+    background-color: var(--accent-light-blue); /* Invert on hover */
+    color: var(--primary-dark);
+    border-color: var(--accent-light-blue);
+    transform: translateY(-2px); /* Slight lift */
+  }
+  
+  /* Optional: Different colors for specific tags (add more as needed) */
+  /* .tech-tag.react { border-left: 3px solid #61DAFB; } */
+  /* .tech-tag.go { border-left: 3px solid #00ADD8; } */
+  /* .tech-tag.spring { border-left: 3px solid #6DB33F; } */
+  /* .tech-tag.tailwind { border-left: 3px solid #38BDF8; } */
+  
+  
+  /* Styling for highlighted interests */
+  .about-paragraph .highlight {
+    color: var(--accent-purple); /* Use purple accent */
+    font-weight: 600; /* Make it bolder than standard bold */
+     /* Optional: Subtle background or underline */
+     /* background-color: rgba(168, 153, 250, 0.1); */
+     /* padding: 0.1em 0.2em; */
+     /* border-radius: 3px; */
+  }
+  /* --- Developer Image Styling --- */
+  .developer-image {
+    max-width: 100%; /* Ensure it fits within the column */
+    max-height: 400px; /* Control max height */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+    margin: 0 auto; /* Center if column text-align doesn't */
+    opacity: 0; /* Start hidden for animation */
+    transform: scale(0.95) translateX(20px); /* Start smaller and shifted */
+    animation: fadeInScaleUp 1s ease-out 0.3s forwards; /* Fade-in animation */
+    /* Optional: Add a subtle filter or effect */
+    /* filter: drop-shadow(0 0 15px rgba(100, 255, 218, 0.15)); */
+  }
+  
+  @keyframes fadeInScaleUp {
+    to {
+      opacity: 0.9; /* Slightly transparent can look nice */
+      transform: scale(1) translateX(0);
+    }
+  }
+  
+  
+  /* --- Introduction Section Styling --- */
+  .introduction {
+    margin-top: 6rem; /* Increased space after hero */
+    padding: 3rem 2rem; /* More padding inside the section */
+    border-top: 1px solid var(--border-color);
+    background-color: rgba(17, 34, 64, 0.3); /* Subtle background tint */
+    border-radius: 8px; /* Soften edges */
+    box-shadow: 0 4px 15px rgba(2, 12, 27, 0.5); /* Subtle shadow */
+  
+    /* Keep the fade-in animation */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out 0.5s forwards;
+    text-align: left; /* Default to left align text inside */
+  }  
+  
+  @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+  
+  .section-intro-title {
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
+    color: var(--text-primary);
+    font-weight: 500;
+    margin-bottom: 2rem; /* More space below title */
+    text-align: center; /* Center the title itself */
+    display: block; /* Ensure it takes full width for centering */
+  }
+  .section-intro-title .code-bracket {
+    color: var(--accent-purple);
+    font-weight: normal;
+  }
+  
+  .introduction .lead {
+    color: var(--text-secondary);
+    font-size: clamp(1rem, 2.5vw, 1.1rem); /* Responsive lead */
+    line-height: 1.7;
+    max-width: 800px; /* Limit width for readability */
+    margin-left: auto;
+    margin-right: auto; /* Center the lead paragraph */
+  }
+  
+  /* --- Background Grid (Ensure it's behind content) --- */
+  .background-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+      linear-gradient(to right, rgba(40, 53, 83, 0.2) 1px, transparent 1px), /* Lighter lines */
+      linear-gradient(to bottom, rgba(40, 53, 83, 0.2) 1px, transparent 1px);
+    background-size: 50px 50px; /* Slightly larger grid */
+    z-index: 0; /* Behind content which has z-index: 1 */
+    opacity: 0.3; /* Keep it subtle */
+    pointer-events: none; /* Make sure it doesn't interfere with clicks */
+  }
+  
+  
+  /* --- Responsive Adjustments --- */
+  
+  /* Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+     /* No major changes needed here as lg breakpoint handles the split */
+  }
+  
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    .home-section {
+      /* Align text column content to the start */
+      /* text-align: left; This is handled by text-lg-start */
+    }
+    .tagline {
+        margin-left: 0; /* Align left */
+        margin-right: 0;
+    }
+    .introduction {
+      text-align: left; /* Left align intro text on large screens */
+    }
+    .introduction .lead {
+       margin-left: 0; /* Reset centering */
+       margin-right: 0;
+    }
+    .section-intro-title {
+       display: block; /* Allow left alignment */
+    }
+  }
+  
+  /* Extra small devices (phones, less than 576px) */
+  @media (max-width: 575.98px) {
+    .name-tag { font-size: 1.7rem; }
+    .role-declaration { font-size: 1rem; min-height: 65px; /* More space for wrapping */ }
+    .tagline { font-size: 0.95rem; }
+    .section-intro-title { font-size: 1.4rem; }
+    .introduction .lead { font-size: 0.95rem; }
+    .developer-image { max-height: 250px; margin-bottom: 2rem; } /* Smaller image, add space below when stacked */
+  }
+  .about-paragraph {
+    color: var(--text-secondary);
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    line-height: 1.8; /* Increased line height for readability */
+    margin-bottom: 1.75rem; /* Spacing between paragraphs */
+    /* Revert to standard font if mono is too much here */
+    /* font-family: var(--bs-body-font-family); */
+  }
+  .about-paragraph.cta {
+    margin-top: 2rem; /* More space before the final comment */
+    margin-bottom: 0; /* No space after the last element */
+    text-align: center; /* Center the final comment */
+  }
+  .about-paragraph.cta .code-comment {
+    font-size: 1em; /* Make comment slightly larger */
+    font-style: normal; /* Maybe not italic here */
+    color: var(--accent-light-blue); /* Brighter color */
+  }
+  
+  
+  /* --- Responsive Adjustments for Introduction --- */
+  
+  @media (max-width: 767.98px) { /* Medium devices and down */
+    .introduction {
+       padding: 2rem 1rem; /* Reduce padding on smaller screens */
+       margin-top: 4rem; /* Reduce top margin */
+    }
+     .about-paragraph {
+       line-height: 1.7; /* Slightly reduce line height */
+       margin-bottom: 1.5rem;
+     }
+  }
+  
+  @media (max-width: 575.98px) { /* Small devices */
+     .section-intro-title {
+       margin-bottom: 1.5rem;
+     }
+     .about-paragraph {
+       font-size: 0.95rem; /* Slightly smaller text */
+     }
+     .tech-tag {
+       font-size: 0.8em; /* Even smaller tags */
+       padding: 0.25em 0.6em;
+       margin-right: 0.5em;
+       margin-bottom: 0.5em;
+     }
+    }

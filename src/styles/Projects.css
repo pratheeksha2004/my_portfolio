@@ -1,0 +1,42 @@
+/* src/pages/Projects.css */
+.project-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Make card fill the column height set by d-flex */
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--shadow-color);
+    border-color: var(--accent-purple); /* Highlight border on hover */
+  }
+  
+  .project-card .card-title {
+    color: var(--accent-light-blue);
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .project-card .card-text {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem; /* Ensure space before button */
+  }
+  
+  .project-card .card-img-top {
+      height: 180px; /* Adjust as needed */
+      object-fit: cover; /* Cover or contain */
+      border-bottom: 1px solid var(--border-color);
+  }
+  
+  /* Styling for tags if used */
+  .tags .badge {
+      background-color: var(--primary-dark) !important; /* Override bootstrap default */
+      border: 1px solid var(--text-secondary);
+      color: var(--text-secondary);
+      font-weight: normal;
+      padding: 0.3em 0.6em;
+      font-size: 0.75rem;
+  }
