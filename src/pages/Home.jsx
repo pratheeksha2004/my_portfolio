@@ -64,10 +64,12 @@ function Home() {
                 Actively honing my skills with hands-on experience in: <br />
                 <span className="tech-tags-container">
                   <code className="tech-tag react">React</code>
-                  <code className="tech-tag go">Golang</code>
+                  <code className="tech-tag go">Bootstrap</code>
+                  <code className="tech-tag tailwind">Tailwind CSS</code>
                   <code className="tech-tag spring">Spring Boot</code>
                   <code className="tech-tag api">APIs</code>
-                  <code className="tech-tag tailwind">Tailwind CSS</code>
+                  <code className="tech-tag go">ELK Stack</code>
+                  <code className="tech-tag tailwind">Redis</code>
                 </span>
               </p>
               <p className="about-paragraph">

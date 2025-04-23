@@ -3,7 +3,7 @@ import { FaDownload } from 'react-icons/fa';
 
 function Resume() {
   // --- IMPORTANT: Replace with the actual path to your resume in the public folder ---
-  const resumeUrl = '/Pratheeksha_Resume.pdf';
+  const resumeUrl = 'src\assets\Pratheeksha K N_4NM21IS111.pdf';
   const resumeFilename = 'Pratheeksha_Resume.pdf'; // The name the file will download as
 
   return (

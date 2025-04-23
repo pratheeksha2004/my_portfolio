@@ -1,149 +1,37 @@
 /* src/index.css */
+
+/* --- :root Variables --- */
 :root {
-  /* Galaxy Theme Colors */
-  --primary-dark: #0a192f; /* Deep space blue */
-  --secondary-dark: #112240; /* Slightly lighter blue */
-  --accent-light-blue: #64ffda; /* Neon teal/cyan for accents */
-  --accent-purple: #a899fa; /* A muted purple */
-  --text-primary: #ccd6f6; /* Light grey/blue text */
-  --text-secondary: #8892b0; /* Greyer text */
-  --card-bg: #112240; /* Background for cards */
+  --primary-dark: #0a192f;
+  --secondary-dark: #112240;
+  --accent-light-blue: #64ffda;
+  --accent-purple: #a899fa;
+  --text-primary: #ccd6f6;
+  --text-secondary: #8892b0;
+  --card-bg: #112240;
   --border-color: #233554;
   --shadow-color: rgba(2, 12, 27, 0.7);
-
-  /* Standard Variables */
-  --bs-body-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Example font */
+  /* Define base font */
+  --base-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --code-font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
-body {
-  margin: 0;
-  font-family: var(--bs-body-font-family);
-  background-color: var(--primary-dark);
-  color: var(--text-primary);
-  line-height: 1.6;
+/* --- Keyframes --- */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-.app-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  /* Optional: Add a subtle starry background */
-  /* background-image: url('/path/to/your/starry-background.png'); */
-  /* background-size: cover; */
-  /* background-attachment: fixed; */
+@keyframes scanLineAnim {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100px; }
 }
 
-.main-content {
-  flex-grow: 1;
-  padding-top: 80px; /* Adjust based on your navbar height */
-  padding-bottom: 40px; /* Space at the bottom */
-}
-
-/* General Styling */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--text-primary);
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-a {
-  color: var(--accent-light-blue);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: var(--accent-purple);
-}
-
-/* Custom Button Style */
-.btn-custom {
-  color: var(--accent-light-blue);
-  background-color: transparent;
-  border: 1px solid var(--accent-light-blue);
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.btn-custom:hover {
-  background-color: rgba(100, 255, 218, 0.1); /* Subtle hover background */
-  color: var(--accent-light-blue);
-  border-color: var(--accent-light-blue);
-}
-
-
-/* Section Styling */
-.section {
-    padding: 60px 0;
-    margin-bottom: 40px;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2.5rem;
-    color: var(--accent-light-blue);
-    position: relative;
-    display: inline-block; /* Center alignment helper */
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* Optional: Add an underline effect to titles */
-.section-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: var(--accent-purple);
-    margin: 8px auto 0; /* Center the line */
-}
-
-/* Add specific component styles below or in separate files */
-
-/* Navbar specific */
-.navbar-custom {
-  background-color: rgba(10, 25, 47, 0.85); /* Semi-transparent dark blue */
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px -10px var(--shadow-color);
-  position: fixed; /* Stick to top */
-  width: 100%;
-  top: 0;
-  z-index: 1100; /* Ensure it's above other content */
-  padding: 0.5rem 1rem; /* Adjust padding */
-}
-
-.navbar-custom .navbar-brand {
-    color: var(--accent-light-blue);
-    font-weight: bold;
-}
-.navbar-custom .navbar-brand:hover{
-     color: var(--accent-purple);
-}
-
-.navbar-custom .nav-link {
-  color: var(--text-secondary);
-  margin: 0 0.5rem; /* Spacing between links */
-  padding: 0.5rem 0.75rem;
-  transition: color 0.3s ease;
-}
-
-.navbar-custom .nav-link:hover,
-.navbar-custom .nav-link.active {
-  color: var(--accent-light-blue);
-}
-
-
-/* Waving Hand Animation */
-.wave {
-  display: inline-block;
-  animation-name: wave-animation;
-  animation-duration: 2.5s;
-  animation-iteration-count: infinite;
-  transform-origin: 70% 70%;
+@keyframes codeRainFall {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10%, 90% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
 }
 
 @keyframes wave-animation {
@@ -156,30 +44,232 @@ a:hover {
    60% { transform: rotate( 0.0deg) }
   100% { transform: rotate( 0.0deg) }
 }
-/* In src/index.css or src/App.css */
-html, body {
-  height: 100%; /* Ensure body can take full height */
+
+/* --- Basic HTML/Body/Root Setup --- */
+html, body { height: 100%; margin: 0; }
+
+body {
+   background: linear-gradient(-45deg, var(--primary-dark), var(--secondary-dark), #0b1021, #142a52);
+   background-size: 400% 400%;
+   animation: gradientBG 25s ease infinite;
+   color: var(--text-primary);
+   position: relative;
+   z-index: -2;
+   font-family: var(--base-font-family); /* Use base font */
+   line-height: 1.6;
 }
 
-#root { /* Or your main mounting point */
+#root {
   min-height: 100%;
   display: flex;
   flex-direction: column;
 }
 
+/* --- App Container --- */
 .app-container {
-  min-height: 100vh; /* Ensure container takes full viewport height */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* Optional background image/color if not on body */
-  /* background-color: var(--primary-dark); */
+  position: relative;
+  overflow: hidden; /* Important for containing absolute children */
+  z-index: 1;
 }
 
+/* --- Global Background Elements Styling (Subtle) --- */
+.global-background-code,
+.global-bg-grid,
+.global-scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1; /* Behind overlay */
+  overflow: hidden;
+}
+
+/* Animated Code Lines (Subtle) */
+.bg-code-line {
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+  user-select: none;
+  font-family: var(--code-font-family); /* Use code font */
+  text-shadow: 0 0 3px rgba(100, 255, 218, 0.15); /* Reduced glow */
+  opacity: 0;
+  animation-name: codeRainFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+  /* Color/Size/Timing handled inline in App.jsx for randomness */
+}
+
+/* Background Grid (Subtle) */
+.global-bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(40, 53, 83, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(40, 53, 83, 0.1) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.15; /* Very subtle */
+}
+
+/* Scanlines (Subtle) */
+.global-scanlines {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(17, 34, 64, 0) 0%,
+    rgba(17, 34, 64, 0) 98.5%,
+    rgba(100, 255, 218, 0.03) 99%,
+    rgba(100, 255, 218, 0.03) 100%
+  );
+  background-size: 100% 8px;
+  animation: scanLineAnim 15s linear infinite;
+  opacity: 0.2; /* Very subtle */
+}
+
+/* --- Content Overlay for Readability --- */
+.content-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 25, 47, 0.15); /* Dark overlay - adjust opacity 0.0 to 1.0 */
+  /* Optional: backdrop-filter: blur(1px); */
+  z-index: 2; /* Above background, below content */
+  pointer-events: none;
+}
+
+/* --- Main Content Area --- */
 .main-content {
-  flex-grow: 1; /* Allows main content to take available space, pushing footer down */
-  /* Add padding top/bottom as needed */
-  padding-top: 80px; /* Example: Match navbar height */
+  flex-grow: 1;
+  padding-top: 80px; /* Adjust based on fixed navbar height */
   padding-bottom: 40px;
+  position: relative; /* Needed for z-index */
+  z-index: 3; /* Above overlay */
 }
 
-/* Footer styles are now in Footer.css, but margin-top: auto there helps */
+/* --- Navbar --- */
+.navbar-custom {
+    position: fixed; /* Fixed position */
+    width: 100%;
+    top: 0;
+    z-index: 1100 !important; /* High z-index to stay on top */
+    background-color: rgba(10, 25, 47, 0.85); /* Semi-transparent */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px -10px var(--shadow-color);
+    padding: 0.5rem 1rem;
+    /* Add transition for potential future effects */
+    transition: background-color 0.3s ease;
+}
+
+.navbar-custom .navbar-brand {
+    color: var(--accent-light-blue);
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+.navbar-custom .navbar-brand:hover{
+     color: var(--accent-purple);
+}
+
+.navbar-custom .nav-link {
+  color: var(--text-secondary);
+  margin: 0 0.75rem;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+  font-weight: 500;
+  background-color: transparent !important; /* Ensure no unwanted background */
+  border: none; /* Ensure no unwanted border */
+}
+
+/* Navbar Links - Hover and Active States */
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active { /* .active class from React Router NavLink */
+  color: var(--accent-light-blue) !important; /* Ensure active link uses accent color */
+  /* Optional: Add subtle underline or other indicator */
+  /* border-bottom: 2px solid var(--accent-light-blue); */
+}
+
+/* Navbar Toggler */
+.navbar-custom .navbar-toggler {
+  border-color: rgba(100, 255, 218, 0.5);
+  transition: box-shadow 0.2s ease-in-out;
+}
+.navbar-custom .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(100, 255, 218, 0.5);
+}
+.navbar-custom .navbar-toggler-icon {
+   filter: invert(75%) sepia(100%) saturate(300%) hue-rotate(130deg) brightness(1.1);
+}
+
+/* --- Footer --- */
+.portfolio-footer {
+    position: relative;
+    z-index: 3; /* Above overlay */
+    margin-top: auto; /* Push to bottom */
+    flex-shrink: 0;
+    background-color: var(--secondary-dark);
+    padding: 2.5rem 0 1.5rem 0;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    /* Add styles for links inside footer if needed */
+}
+
+.portfolio-footer .social-links a { /* Example */
+    color: var(--text-secondary);
+    font-size: 1.6rem;
+    margin: 0 1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+.portfolio-footer .social-links a:hover {
+    color: var(--accent-light-blue);
+    transform: translateY(-4px);
+}
+
+
+/* --- General Element Styles --- */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: var(--base-font-family); /* Use base font */
+}
+
+p, li, label, input, textarea, button, span /* Apply base font generally */ {
+    font-family: var(--base-font-family);
+}
+
+a {
+  color: var(--accent-light-blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: var(--accent-purple);
+}
+
+/* --- Utility & Component Specific (Add as needed) --- */
+.btn-custom {
+  /* ... styles */
+  font-family: var(--base-font-family); /* Ensure button font */
+}
+
+.section { padding: 60px 0; margin-bottom: 40px; }
+.section-title { /* ... styles */ }
+.section-title::after { /* ... styles */ }
+
+/* Home page specific wave animation */
+.wave {
+  display: inline-block;
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+}
+
+/* Ensure other component styles (like Skillset, Projects, Contact forms) use the --base-font-family unless specifically needing the --code-font-family */

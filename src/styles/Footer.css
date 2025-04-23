@@ -1,43 +1,65 @@
-/* src/styles/Footer.css */
+/* src/styles/Footer.css - UPDATED PADDING */
 
 .portfolio-footer {
-    background-color: var(--secondary-dark); /* Use a slightly different dark shade */
-    padding: 2.5rem 0 1.5rem 0; /* Top padding > Bottom padding */
-    margin-top: auto; /* Crucial: Pushes footer to bottom if page content is short */
-    border-top: 1px solid var(--border-color); /* Subtle separator line */
-    color: var(--text-secondary); /* Default text color for footer */
-    flex-shrink: 0; /* Prevent footer from shrinking if content grows */
-  }
-  
-  .footer-content {
-    /* Container handles width and centering */
-  }
-  
-  /* Styling for the social media/contact icon links */
-  .social-links a {
-    color: var(--text-secondary); /* Icon color */
-    font-size: 1.6rem; /* Make icons slightly larger */
-    margin: 0 1rem; /* Spacing between icons */
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
-    display: inline-block; /* Needed for transform */
-  }
-  
-  .social-links a:hover {
-    color: var(--accent-light-blue); /* Highlight color on hover */
-    transform: translateY(-4px); /* Slight lift effect on hover */
-  }
-  
-  /* Styling for the dedication phrase */
-  .dedication {
-    font-style: italic;
-    font-size: 1rem;
-    color: var(--text-primary); /* Slightly brighter than copyright */
-    margin-bottom: 0.5rem; /* Adjust spacing */
-  }
-  
-  /* Styling for the copyright text */
-  .copyright {
-    font-size: 0.85rem; /* Smaller text */
-    color: var(--text-secondary);
-    margin-bottom: 0; /* Remove default bottom margin from paragraph */
-  }
+  background-color: var(--secondary-dark);
+  /* --- UPDATED PADDING: Remove horizontal padding (0) --- */
+  padding: 3rem 0 1.5rem 0; /* Top, Left/Right, Bottom */
+  /* --- END UPDATE --- */
+  margin-top: auto;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  width: 100%;
+  position: relative;
+  z-index: 3;
+}
+
+/* This class is inside the inner .container now */
+/* The .container class from Bootstrap provides the necessary horizontal padding */
+.footer-content {
+  max-width: 800px; /* Optional: Limit width */
+  margin: 0 auto; /* Center content block */
+   /* text-align: center; is handled by Bootstrap class */
+}
+
+/* Social Links */
+.social-links a {
+  color: var(--text-secondary);
+  font-size: 1.6rem;
+  margin: 0 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+.social-links a:hover {
+  color: var(--accent-light-blue);
+  transform: translateY(-4px);
+}
+
+/* Code Comment Line Styles */
+.code-footer-line {
+  font-family: var(--code-font-family);
+  color: #828ea0;
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.code-footer-line .code-react { color: #61DAFB; font-weight: 500; }
+.code-footer-line .code-heart { color: #e06c75; display: inline-block; }
+.blinking-cursor { font-weight: bold; color: var(--text-secondary); animation: blink-cursor 1s step-end infinite; margin-left: 2px; }
+@keyframes blink-cursor { from, to { color: transparent; } 50% { color: var(--text-secondary); } }
+
+/* Dedication & Copyright Styles */
+.dedication { font-style: italic; font-size: 1rem; color: var(--text-primary); margin-bottom: 0.75rem; }
+.copyright { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0; }
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+  .portfolio-footer { padding: 2rem 0 1rem 0; /* Adjust vertical padding */ }
+  .social-links a { margin: 0 0.75rem; font-size: 1.5rem; }
+  .code-footer-line { font-size: 0.85rem; }
+  .dedication { font-size: 0.9rem; }
+  .copyright { font-size: 0.8rem; }
+}
