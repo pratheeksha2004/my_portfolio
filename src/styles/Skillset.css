@@ -1,43 +1,181 @@
-/* src/pages/Skillset.css */
+/* src/styles/Skillset.css */
+
+/* --- Subsection Title Styling --- */
+.subsection-title {
+  color: var(--accent-purple); /* Use accent color for titles */
+  font-weight: 500;
+  font-family: var(--code-font-family); /* Use code font for titles */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1.3rem; /* Adjust size */
+  margin-bottom: 2.5rem !important; /* More space below title */
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color); /* Subtle underline */
+  display: inline-block; /* Allow border to fit content */
+}
+/* src/index.css OR src/styles/Skillset.css */
+
+.section-title {
+  /* --- Text Styling --- */
+  font-size: 2.5rem;
+  color: var(--accent-light-blue);
+  font-weight: 600;
+  font-family: var(--base-font-family);
+  text-align: center;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+
+  /* --- Layout & Positioning --- */
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  /* --- INCREASE THIS VALUE --- */
+  margin-bottom: 60px; /* Increased from 40px - Adjust as needed */
+  /* --- END INCREASE --- */
+  padding-bottom: 10px;
+  max-width: 90%;
+}
+
+/* --- Underline Effect --- */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 70px;
+  height: 4px;
+  background-color: var(--accent-purple);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  border-radius: 2px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+     /* --- Adjust responsive margin too --- */
+    margin-bottom: 50px; /* Increased from 30px */
+  }
+  .section-title::after {
+     width: 60px;
+     height: 3px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 1.8rem;
+    /* --- Adjust responsive margin too --- */
+    margin-bottom: 40px; /* Increased from 25px */
+  }
+   .section-title::after {
+     width: 50px;
+  }
+}
+
+/* Ensure title stays centered even with display: inline-block */
+.subsection-title.text-center {
+    /* Overwrite Bootstrap default if needed, but text-center on parent row should work */
+    /* Or add relative positioning if needed for complex centering */
+}
+
+
+/* --- Skill Item Card Styling --- */
 .skill-item {
-    background-color: var(--secondary-dark); /* Slightly different background */
-    padding: 20px;
-    border-radius: 8px;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    border: 1px solid var(--border-color);
-    height: 100%; /* Ensure items in a row have same height potential */
-    display: flex; /* Helps vertically align content if needed */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .skill-item:hover {
-    transform: translateY(-10px) scale(1.05); /* Pop up effect */
-    box-shadow: 0 10px 20px var(--shadow-color);
-    border-color: var(--accent-light-blue);
-  }
-  
-  .skill-logo {
-    max-width: 60px; /* Adjust size as needed */
-    height: 60px; /* Maintain aspect ratio or set fixed size */
-    object-fit: contain; /* Ensure logo fits well */
-    filter: grayscale(30%) brightness(1.2); /* Subtle filter for theme */
-    transition: filter 0.3s ease;
-  }
-  
-  .skill-item:hover .skill-logo {
-      filter: grayscale(0%) brightness(1); /* Full color on hover */
-  }
-  
-  /* Optional: Style for skill name if you uncomment it */
-  .skill-name {
-      margin-top: 10px;
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-  }
-  
+  background-color: var(--secondary-dark);
+  /* Optional subtle gradient: */
+  /* background-image: linear-gradient(145deg, rgba(17, 34, 64, 0.4), rgba(10, 25, 47, 0.2)); */
+  padding: 1.5rem 1rem; /* Adjusted padding */
+  border-radius: 10px; /* Slightly more rounded */
+  border: 1px solid var(--border-color);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  overflow: hidden; /* Ensure content fits */
+  position: relative; /* For potential pseudo-elements */
+  min-height: 140px; /* Ensure a minimum height */
+}
+
+/* --- Skill Item Hover Effect --- */
+.skill-item:hover {
+  transform: translateY(-8px) scale(1.03); /* Refined pop effect */
+  border-color: var(--accent-light-blue); /* Accent border on hover */
+  /* Combined glow + shadow effect */
+  box-shadow:
+    0 0 20px 2px rgba(100, 255, 218, 0.15), /* Outer glow */
+    0 6px 15px rgba(2, 12, 27, 0.5); /* Standard shadow */
+}
+
+/* --- Skill Logo Styling (Visibility Fix) --- */
+.skill-logo {
+  /* Container for the logo image */
+  display: block; /* Treat as block for centering */
+  width: 70px; /* Size of the circular background */
+  height: 70px;
+  padding: 12px; /* Space between logo edge and background edge */
+  background-color: rgba(224, 230, 236, 0.95); /* Light, slightly opaque background */
+  border-radius: 50%; /* Make the background circular */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); /* Subtle inner shadow */
+  margin-bottom: 0.75rem; /* Space below logo if name is added */
+
+  /* Image itself */
+  max-width: 100%; /* Max width relative to the padded container */
+  max-height: 100%; /* Max height relative to the padded container */
+  object-fit: contain; /* Scale logo nicely within the padding */
+
+  /* Transitions */
+  transition: transform 0.3s ease-in-out;
+  /* Reset filter if previously applied */
+  filter: none;
+  opacity: 0.9; /* Slightly fade by default */
+}
+
+/* --- Skill Logo Hover Effect --- */
+.skill-item:hover .skill-logo {
+  transform: scale(1.1); /* Make logo slightly larger on card hover */
+  opacity: 1; /* Full opacity on hover */
+}
+
+
+/* --- Optional: Style for Skill Name (If you add it back) --- */
+.skill-name {
+  margin-top: 0.75rem; /* Space above name */
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-family: var(--base-font-family); /* Use base font */
+  text-align: center;
+  /* Prevent text selection */
+  user-select: none;
+  /* Add transition if needed */
+  transition: color 0.3s ease;
+}
+
+.skill-item:hover .skill-name {
+  color: var(--text-primary); /* Make name slightly brighter on hover */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 576px) {
   .subsection-title {
-    color: var(--text-primary);
-    font-weight: 500;
+    font-size: 1.1rem; /* Smaller title */
+    margin-bottom: 2rem !important;
   }
+  .skill-item {
+    min-height: 120px; /* Adjust min height */
+    padding: 1.2rem 0.8rem;
+  }
+  .skill-logo {
+    width: 60px; /* Smaller logo circle */
+    height: 60px;
+    padding: 10px; /* Adjust padding */
+  }
+   .skill-name {
+     font-size: 0.8rem;
+   }
+}

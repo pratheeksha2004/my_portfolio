@@ -1,42 +1,150 @@
-/* src/pages/Projects.css */
+/* src/styles/Projects.css */
+
 .project-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    color: var(--text-primary);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%; /* Make card fill the column height set by d-flex */
+  /* --- Enhanced Background --- */
+  background-color: var(--secondary-dark); /* Base dark blue */
+  /* Add a subtle radial gradient originating from the bottom */
+  background-image: radial-gradient(
+    circle at 50% 120%, /* Origin below the card */
+    rgba(10, 25, 47, 0.5), /* Darker center */
+    rgba(17, 34, 64, 0.8) 70% /* Slightly lighter towards edges */
+  );
+  color: var(--text-primary);
+  border-radius: 10px; /* Slightly more rounded */
+  overflow: hidden;
+  position: relative; /* For pseudo-elements */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  /* --- Border Styling --- */
+  /* Use a gradient border effect (subtle) */
+  border: 1px solid transparent; /* Start transparent */
+  background-clip: padding-box; /* Important for gradient border */
+  /* Create the border using a pseudo-element */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1; /* Place behind content */
+    margin: -1px; /* Expand slightly beyond the card bounds */
+    border-radius: inherit; /* Use same rounding */
+    /* Define the border gradient */
+    background: linear-gradient(135deg, rgba(35, 53, 84, 0.5), rgba(100, 255, 218, 0.1), rgba(168, 153, 250, 0.1), rgba(35, 53, 84, 0.5));
+    transition: opacity 0.35s ease-out; /* Transition the border visibility */
+    opacity: 0.7; /* Default border visibility */
   }
-  
-  .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px var(--shadow-color);
-    border-color: var(--accent-purple); /* Highlight border on hover */
+
+  /* --- Transitions --- */
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), /* Smoother ease */
+              box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-card:hover {
+  transform: translateY(-8px) scale(1.02); /* Slightly more pronounced hover */
+  /* Enhanced glow + shadow on hover */
+  box-shadow:
+    0 0 30px 5px rgba(100, 255, 218, 0.25), /* Brighter accent glow */
+    0 10px 25px rgba(2, 12, 27, 0.7);      /* Deeper shadow */
+
+  /* Make border gradient more prominent on hover */
+  &::before {
+      opacity: 1;
+      background: linear-gradient(135deg, rgba(100, 255, 218, 0.4), rgba(168, 153, 250, 0.4)); /* Brighter gradient */
   }
-  
-  .project-card .card-title {
+}
+
+/* --- Card Body & Content --- */
+.project-card .card-body {
+  padding: 1.5rem 1.8rem; /* Slightly more horizontal padding */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative; /* Ensure content is above ::before */
+  z-index: 1;
+}
+
+.project-card .card-title {
+  color: var(--accent-light-blue);
+  font-weight: 600;
+  font-size: 1.25rem; /* Larger title */
+  margin-bottom: 0.8rem;
+  font-family: var(--base-font-family);
+  /* Add subtle text shadow */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.project-card .card-text {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.65; /* Slightly more spacing */
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* --- Styling for Project Tags --- */
+.project-card .tags {
+    margin-bottom: 1.5rem;
+}
+
+.project-card .tags .project-tag {
+    display: inline-block;
+    /* Change background to match card slightly, less emphasis */
+    background-color: rgba(10, 25, 47, 0.4); /* Darker, subtle base */
+    border: 1px solid rgba(168, 153, 250, 0.4); /* Purple border still */
+    color: var(--accent-purple);
+    font-family: var(--code-font-family);
+    font-weight: 500;
+    padding: 0.35em 0.8em; /* Adjusted padding */
+    font-size: 0.78rem; /* Slightly larger tags */
+    border-radius: 15px; /* Pill shape */
+    margin-right: 0.6em;
+    margin-bottom: 0.6em;
+    transition: all 0.25s ease-in-out;
+    cursor: default;
+}
+
+.project-card .tags .project-tag:hover {
+    background-color: var(--accent-purple);
+    border-color: var(--accent-purple);
+    color: var(--primary-dark);
+    transform: scale(1.05); /* Pop effect */
+    box-shadow: 0 0 8px rgba(168, 153, 250, 0.3); /* Add glow on tag hover */
+}
+
+/* --- Button Styling --- */
+/* Uses the global .btn-custom defined in index.css */
+.project-card .btn-custom {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    align-self: flex-start; /* Align button to start */
+    margin-top: auto; /* Push to bottom */
+    /* Ensure it's visually distinct */
+    background-color: transparent;
+    border-width: 1px;
+}
+
+.project-card .btn-custom:hover {
+    background-color: rgba(100, 255, 218, 0.1); /* Keep subtle hover */
+    border-color: var(--accent-light-blue);
     color: var(--accent-light-blue);
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-  
-  .project-card .card-text {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem; /* Ensure space before button */
-  }
-  
-  .project-card .card-img-top {
-      height: 180px; /* Adjust as needed */
-      object-fit: cover; /* Cover or contain */
-      border-bottom: 1px solid var(--border-color);
-  }
-  
-  /* Styling for tags if used */
-  .tags .badge {
-      background-color: var(--primary-dark) !important; /* Override bootstrap default */
-      border: 1px solid var(--text-secondary);
-      color: var(--text-secondary);
-      font-weight: normal;
-      padding: 0.3em 0.6em;
-      font-size: 0.75rem;
-  }
+}
+
+/* Optional: Style image if used */
+/* .project-card .card-img-top { ... } */
+/* .project-card:hover .card-img-top { ... } */
+.project-card {
+  color: white; /* Make all text white */
+}
+
+.project-card .card-title {
+  color: var(--accent-light-blue); /* Restore old heading color */
+}
+
+.project-card .card-text {
+  color: white; /* Keep description text white */
+}
+
+.project-card .tags .project-tag {
+  color: white; /* Keep tags white */
+}
