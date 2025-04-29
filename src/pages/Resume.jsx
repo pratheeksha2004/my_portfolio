@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaDownload } from 'react-icons/fa';
-import '../styles/Resume.css'; // Make sure to import your styles
+import '../styles/resume.css'; // Make sure to import your styles
 
 function Resume() {
   const resumeUrl = '/My_new_resume.pdf';
