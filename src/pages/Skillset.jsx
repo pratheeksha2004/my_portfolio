@@ -6,7 +6,7 @@ import javaLogo from '../assets/logos/java.svg';
 import goLogo from '../assets/logos/golang.png';
 
 // Frameworks & Libraries
-import reactLogo from '../assets/logos/react.png';
+import reactLogo from '../assets/logos/React.png';
 import springBootLogo from '../assets/logos/springboot.png';
 import sapui5Logo from '../assets/logos/sapui5.png';
 import tailwindLogo from '../assets/logos/tailwindcss.png';
