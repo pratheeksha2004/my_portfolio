@@ -107,6 +107,7 @@ function App() {
                         <Route path="/contact" element={<Contact />} />
                         {/* Optional: <Route path="*" element={<NotFound />} /> */}
                     </Routes>
+                    
                 </main>
                 <Footer />
             </>

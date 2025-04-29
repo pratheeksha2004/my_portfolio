@@ -17,10 +17,12 @@
 /* This class is inside the inner .container now */
 /* The .container class from Bootstrap provides the necessary horizontal padding */
 .footer-content {
-  max-width: 800px; /* Optional: Limit width */
-  margin: 0 auto; /* Center content block */
-   /* text-align: center; is handled by Bootstrap class */
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem; /* optional padding for breathing space */
 }
+
+
 
 /* Social Links */
 .social-links a {

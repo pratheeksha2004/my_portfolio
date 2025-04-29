@@ -32,8 +32,9 @@ function Footer() {
 
           {/* Dedication */}
           <p className="dedication mb-2">
-            Dedicated to creating impactful solutions!
-          </p>
+  {'return ( <Success /> );'}
+</p>
+
 
           {/* Copyright */}
           <p className="copyright">

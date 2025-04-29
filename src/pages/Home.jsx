@@ -64,7 +64,7 @@ function Home() {
                 Actively honing my skills with hands-on experience in: <br />
                 <span className="tech-tags-container">
                   <code className="tech-tag react">React</code>
-                  <code className="tech-tag go">Bootstrap</code>
+                  <code className="tech-tag go">SAP UI5</code>
                   <code className="tech-tag tailwind">Tailwind CSS</code>
                   <code className="tech-tag spring">Spring Boot</code>
                   <code className="tech-tag api">APIs</code>

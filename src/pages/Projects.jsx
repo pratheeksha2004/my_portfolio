@@ -31,7 +31,7 @@ const projectData = [
    {
     id: 4,
     title: 'SAP BTP Product List Application',
-    description: 'Developed a basic SAP UI5 application in Business Application Studio (BAS) using MVC architecture and a JSON Model. Consumed the Northwind OData service, added filtering, and deployed to SAP BTP Cloud Foundry.',
+    description: 'Developed a SAP UI5 application in Business Application Studio (BAS) using MVC architecture and a JSON Model. Consumed the Northwind OData service, added filtering, and deployed to SAP BTP Cloud Foundry.',
     // imageUrl: '/path/to/project4-image.jpg', // Optional: Add screenshot
     githubUrl: 'https://github.com/pratheeksha2004/sap-btp-northwind-productlist-app',
     tags: ['SAP UI5', 'SAP BTP', 'OData', 'JSON Model', 'BAS', 'Cloud Foundry', 'MVC']
