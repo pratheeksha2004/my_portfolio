@@ -57,27 +57,35 @@ function Home() {
               </h3>
               {/* Paragraphs remain the same */}
               <p className="about-paragraph">
-                Hi! I'm Pratheeksha, a passionate and curious developer driven by building meaningful digital experiences. I thrive on the challenge of solving problems and bringing ideas to life through code.
-              </p>
-              <p className="about-paragraph tech-focus">
-                <span className="code-comment">// Current Stack & Learning</span><br />
-                Actively honing my skills with hands-on experience in: <br />
-                <span className="tech-tags-container">
-                  <code className="tech-tag react">React</code>
-                  <code className="tech-tag go">SAP UI5</code>
-                  <code className="tech-tag tailwind">Tailwind CSS</code>
-                  <code className="tech-tag spring">Spring Boot</code>
-                  <code className="tech-tag api">APIs</code>
-                  <code className="tech-tag go">ELK Stack</code>
-                  <code className="tech-tag tailwind">Redis</code>
-                </span>
-              </p>
-              <p className="about-paragraph">
-                I enjoy the entire development lifecycle, from designing user-friendly interfaces to crafting clean backend logic. My core interest lies in <strong className="highlight">full-stack development</strong>, especially building impactful <strong className="highlight">SaaS</strong> applications and exploring the potential of <strong className="highlight">search technology</strong>.
-              </p>
-               <p className="about-paragraph cta">
-                 <span className="code-comment">// Let's connect and build something awesome!</span>
-               </p>
+  Hi! I'm Pratheeksha, a passionate and curious developer dedicated to crafting meaningful digital experiences. I thrive on solving problems and bringing ideas to life through clean, efficient code.
+</p>
+
+<p className="about-paragraph tech-focus">
+  <span className="code-comment">// Current Stack & Learning</span><br />
+  Gaining hands-on experience and continuously sharpening my skills in: <br />
+  <span className="tech-tags-container">
+    <code className="tech-tag react">React</code>
+    <code className="tech-tag go">SAP UI5</code>
+    <code className="tech-tag tailwind">Tailwind CSS</code>
+    <code className="tech-tag spring">Spring Boot</code>
+    <code className="tech-tag api">APIs</code>
+    <code className="tech-tag go">ELK Stack</code>
+    <code className="tech-tag tailwind">Redis</code>
+  </span>
+</p>
+
+<p className="about-paragraph">
+  I enjoy the full development lifecycle—from designing intuitive user interfaces to building robust backend systems. My core interest lies in <strong className="highlight">full-stack development</strong>, especially creating impactful <strong className="highlight">SaaS</strong> applications and working with <strong className="highlight">search and data technologies</strong>.
+</p>
+
+<p className="about-paragraph">
+  I'm currently open to freelance opportunities and ready to collaborate on projects that need a dedicated and capable developer.
+</p>
+
+<p className="about-paragraph cta">
+  <span className="code-comment">// Let's connect and build something awesome together!</span>
+</p>
+
             </div>
           </div>
         </div>
